@@ -22,7 +22,7 @@ public class Alimento {
     @Column(name = "calorias")
     private Double calorias;
 
-    @Column (name = "natural")
+    @Column (name = "eh-natural")
     private Boolean natural;
 
 }

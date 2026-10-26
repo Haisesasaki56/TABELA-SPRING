@@ -19,6 +19,7 @@ public class AlimentoController {
         return ResponseEntity.ok().build();
     }
 
+    // Corrigido: Busca pelo NOME do alimento (String) para bater com o AlimentoService
     @GetMapping
     public ResponseEntity<Alimento> buscarAlimentoPorAlimento(@RequestParam String alimento) {
         return ResponseEntity.ok(alimentoService.buscarAlimentoPorAlimento(alimento));
@@ -30,10 +31,11 @@ public class AlimentoController {
         return ResponseEntity.ok().build();
     }
 
+    // Mantido: Alteração pelo ID (Integer) do alimento
     @PutMapping
-    public ResponseEntity<Void> atualizarAlimentoporAlimento(@RequestParam String alimento,
-                                                             @RequestBody Alimento alimentoAtualizacao) {
-        alimentoService.atualizarAlimentoporAlimento(alimento, alimentoAtualizacao);
+    public ResponseEntity<Void> atualizarAlimentoPorId(@RequestParam Integer id,
+                                                       @RequestBody Alimento alimento) {
+        alimentoService.atualizarAlimentoPorId(id, alimento);
         return ResponseEntity.ok().build();
     }
 }

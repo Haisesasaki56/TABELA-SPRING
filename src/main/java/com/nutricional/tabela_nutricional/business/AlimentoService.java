@@ -13,11 +13,19 @@ public class AlimentoService {
     }
 
     public void salvarAlimento(Alimento alimento){
-        repository.saveAndFlush(alimento); // Ajustado de saveAllAndFlush igual ao vídeo
+        repository.saveAndFlush(alimento);
     }
 
+    // Busca por NOME (String) - Usado no GET
     public Alimento buscarAlimentoPorAlimento(String alimento){
         return repository.findByAlimento(alimento).orElseThrow(
+                () -> new RuntimeException("Alimento não encontrado")
+        );
+    }
+
+    // Busca por ID (Integer) - Usado internamente no PUT
+    public Alimento buscarAlimentoPorId(Integer id){
+        return repository.findById(id).orElseThrow(
                 () -> new RuntimeException("Alimento não encontrado")
         );
     }
@@ -26,21 +34,17 @@ public class AlimentoService {
         repository.deleteByAlimento(alimento);
     }
 
-    // Adaptado exatamente como no vídeo: (Busca, Objeto com novos dados)
-    public void atualizarAlimentoporAlimento(String alimento, Alimento alimentoAtualizacao){
+    // Altera por ID (Integer) - Usado no PUT
+    public void atualizarAlimentoPorId(Integer id, Alimento alimentoAtualizacao){
+        Alimento alimentoEntity = buscarAlimentoPorId(id);
 
-        // 1. Busca a entidade
-        Alimento alimentoEntity = buscarAlimentoPorAlimento(alimento);
-
-        // 2. Monta o objeto atualizado usando Builder e operador ternário, igual ao vídeo
         Alimento alimentoAtualizado = Alimento.builder()
+                .id(alimentoEntity.getId())
                 .alimento(alimentoAtualizacao.getAlimento() != null ? alimentoAtualizacao.getAlimento() : alimentoEntity.getAlimento())
                 .calorias(alimentoAtualizacao.getCalorias() != null ? alimentoAtualizacao.getCalorias() : alimentoEntity.getCalorias())
                 .natural(alimentoAtualizacao.getNatural() != null ? alimentoAtualizacao.getNatural() : alimentoEntity.getNatural())
-                .id(alimentoEntity.getId())
                 .build();
 
-        // 3. Salva
         repository.saveAndFlush(alimentoAtualizado);
     }
 }
