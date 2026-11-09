@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestão Nutricional | Padrão Ajinomoto</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Fonte moderna do Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="main-header">
+    <div class="header-content">
+        <h1><span class="brand-icon">🍽️</span> Sistema Nutricional</h1>
+        <p>Qualidade e precisão no controle de alimentos</p>
+    </div>
+</header>
+
+<main class="container">
+    <section class="card form-container">
+        <div class="card-header">
+            <h2 id="form-title">Cadastrar Novo Alimento</h2>
+            <span class="subtitle">Insira os dados nutricionais detalhados abaixo.</span>
+        </div>
+
+        <form id="alimento-form">
+            <input type="hidden" id="alimento-id">
+
+            <div class="form-group">
+                <label for="alimento">Nome do Alimento</label>
+                <input type="text" id="alimento" placeholder="Ex: Tempero Aji-no-moto®" required>
+            </div>
+
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="calorias">Calorias (kcal)</label>
+                    <input type="number" step="0.01" id="calorias" placeholder="Ex: 15.5" required>
+                </div>
+
+                <div class="form-group toggle-group">
+                    <label class="toggle-label">Classificação do Ingrediente</label>
+                    <label class="switch-container">
+                        <input type="checkbox" id="ehNatural">
+                        <span class="checkmark"></span>
+                        <span class="toggle-text">Origem Natural</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button type="submit" id="btn-submit" class="btn btn-primary">Salvar Alimento</button>
+                <button type="button" id="btn-cancel" class="btn btn-secondary hidden">Cancelar</button>
+            </div>
+        </form>
+    </section>
+
+    <div id="message-container" class="message hidden"></div>
+
+    <section class="card table-container">
+        <div class="card-header">
+            <h2>Alimentos Cadastrados</h2>
+            <span class="badge" id="total-badge">Catálogo</span>
+        </div>
+        <table class="modern-table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Alimento</th>
+                <th>Calorias</th>
+                <th>Classificação</th>
+                <th>Ações</th>
+            </tr>
+            </thead>
+            <tbody id="tabela-corpo">
+            <tr>
+                <td colspan="5" class="loading">Carregando catálogo de alimentos...</td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>

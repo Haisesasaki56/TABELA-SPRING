@@ -1,0 +1,296 @@
+:root {
+    --brand-red: #E31837;      /* Vermelho corporativo (estilo Ajinomoto) */
+    --brand-dark-red: #B71229;
+    --text-main: #2D3748;
+    --text-muted: #718096;
+    --bg-light: #F7FAFC;
+    --card-bg: #FFFFFF;
+    --border-color: #E2E8F0;
+    --success-bg: #C6F6D5;
+    --success-text: #22543D;
+    --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.05);
+    --radius-md: 12px;
+    --radius-sm: 8px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', system-ui, sans-serif;
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+/* Header Corporativo */
+.main-header {
+    background: linear-gradient(135deg, var(--brand-red) 0%, var(--brand-dark-red) 100%);
+    color: white;
+    padding: 2.5rem 1rem;
+    box-shadow: 0 4px 12px rgba(227, 24, 55, 0.2);
+    text-align: center;
+}
+
+.header-content h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 0.5rem;
+}
+
+.header-content p {
+    font-size: 1rem;
+    opacity: 0.9;
+    font-weight: 400;
+}
+
+.brand-icon {
+    margin-right: 8px;
+}
+
+/* Container & Cards */
+.container {
+    max-width: 1050px;
+    margin: -2rem auto 3rem; /* Efeito "overlapping" no header */
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.card {
+    background: var(--card-bg);
+    border-radius: var(--radius-md);
+    padding: 2rem;
+    box-shadow: var(--shadow-soft);
+    border: 1px solid rgba(0,0,0,0.02);
+}
+
+.card-header {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-header h2 {
+    color: var(--brand-dark-red);
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.subtitle {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    display: block;
+    margin-top: 0.2rem;
+}
+
+.badge {
+    background: var(--bg-light);
+    color: var(--text-muted);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border: 1px solid var(--border-color);
+}
+
+/* Formulário Moderno */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-main);
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"] {
+    padding: 0.8rem 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    font-size: 1rem;
+    transition: all 0.2s ease;
+    background-color: #FAFCFF;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--brand-red);
+    background-color: #FFF;
+    box-shadow: 0 0 0 3px rgba(227, 24, 55, 0.1);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+/* Checkbox Customizado / Switch */
+.toggle-group {
+    justify-content: flex-start;
+}
+.switch-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-top: 0.5rem;
+}
+.switch-container input {
+    width: 20px;
+    height: 20px;
+    accent-color: var(--brand-red);
+    cursor: pointer;
+}
+.toggle-text {
+    margin-left: 10px;
+    font-weight: 500;
+    color: var(--text-main);
+}
+
+/* Botões Corporativos */
+.button-group {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.btn {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--brand-red);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--brand-dark-red);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(227, 24, 55, 0.2);
+}
+
+.btn-secondary {
+    background-color: #EDF2F7;
+    color: var(--text-main);
+}
+
+.btn-secondary:hover {
+    background-color: #E2E8F0;
+}
+
+/* Tabela Moderna (Estilo DataGrid) */
+.table-container {
+    overflow-x: auto;
+}
+
+.modern-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.modern-table th {
+    background-color: #F8FAFC;
+    color: var(--text-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+    padding: 1rem;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.modern-table td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    vertical-align: middle;
+}
+
+.modern-table tr:last-child td {
+    border-bottom: none;
+}
+
+.modern-table tr:hover {
+    background-color: #F7FAFC;
+}
+
+/* Botões da Tabela */
+.actions-cell {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.btn-edit, .btn-delete {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+.btn-edit {
+    background-color: #EDF2F7;
+    color: var(--text-main);
+}
+.btn-edit:hover { background-color: #E2E8F0; }
+
+.btn-delete {
+    background-color: #FFF5F5;
+    color: #C53030;
+}
+.btn-delete:hover {
+    background-color: #FED7D7;
+}
+
+/* Mensagens de Alerta */
+.message {
+    padding: 1rem;
+    border-radius: var(--radius-sm);
+    font-weight: 500;
+    text-align: center;
+    animation: fadeIn 0.3s ease;
+}
+
+.message.success {
+    background-color: var(--success-bg);
+    color: var(--success-text);
+}
+
+.message.error {
+    background-color: #FED7D7;
+    color: #9B2C2C;
+}
+
+.hidden {
+    display: none !important;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+}

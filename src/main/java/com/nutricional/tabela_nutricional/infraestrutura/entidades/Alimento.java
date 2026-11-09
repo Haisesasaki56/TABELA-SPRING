@@ -13,16 +13,15 @@ import lombok.*;
 public class Alimento {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "alimento", unique = true)
+    @Column(name = "alimento")
     private String alimento;
 
     @Column(name = "calorias")
     private Double calorias;
 
-    @Column (name = "eh-natural")
+    @Column(name = "eh-natural")
     private Boolean natural;
-
 }
