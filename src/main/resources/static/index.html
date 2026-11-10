@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestão Nutricional | Padrão Ajinomoto</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Fonte moderna do Google -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -18,6 +17,7 @@
 </header>
 
 <main class="container">
+    <!-- Formulário -->
     <section class="card form-container">
         <div class="card-header">
             <h2 id="form-title">Cadastrar Novo Alimento</h2>
@@ -55,13 +55,25 @@
         </form>
     </section>
 
+    <!-- Div para mensagens de Sucesso/Erro -->
     <div id="message-container" class="message hidden"></div>
 
+    <!-- Tabela e Busca -->
     <section class="card table-container">
-        <div class="card-header">
-            <h2>Alimentos Cadastrados</h2>
-            <span class="badge" id="total-badge">Catálogo</span>
+        <!-- Cabeçalho com Busca -->
+        <div class="card-header" style="flex-wrap: wrap; gap: 1rem;">
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <h2>Alimentos Cadastrados</h2>
+                <span class="badge" id="total-badge">Catálogo</span>
+            </div>
+
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Buscar por nome...">
+                <button type="button" id="btn-search" class="btn btn-primary">Buscar</button>
+                <button type="button" id="btn-clear" class="btn btn-secondary hidden">Limpar</button>
+            </div>
         </div>
+
         <table class="modern-table">
             <thead>
             <tr>
@@ -74,7 +86,7 @@
             </thead>
             <tbody id="tabela-corpo">
             <tr>
-                <td colspan="5" class="loading">Carregando catálogo de alimentos...</td>
+                <td colspan="5" class="loading" style="text-align: center;">Carregando catálogo de alimentos...</td>
             </tr>
             </tbody>
         </table>
